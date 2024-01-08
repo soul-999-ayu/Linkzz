@@ -218,7 +218,10 @@ public class Link extends JFrame implements ActionListener{
 			 
 				Path temp = null;
 				try {
-					temp = Files.move(Paths.get("C:\\Users\\"+System.getProperty("user.name")+"\\Documents\\.tmp\\qr.png"), Paths.get(path+"\\"+name));
+					if(theme.equals("light"))
+						temp = Files.copy(Paths.get("C:\\Users\\"+System.getProperty("user.name")+"\\Documents\\.tmp\\qr.png"), Paths.get(path+"\\"+name));
+					else
+						temp = Files.copy(Paths.get("C:\\Users\\"+System.getProperty("user.name")+"\\Documents\\.tmp\\inverted-qr.png"), Paths.get(path+"\\"+name));
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
